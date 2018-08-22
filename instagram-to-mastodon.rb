@@ -19,6 +19,7 @@ else
 end
 instagram_settings = settings["instagram"]
 mastodon_settings = settings["mastodon"]
+filter_settings = settings["filter"]
 
 #
 # Get Instagram weeknotes
@@ -62,8 +63,21 @@ puts "Checking Instagram..."
 client = Instagram.client(:access_token => instagram_settings["access_token"])
 latest_post = settings["most_recent_post_time"].to_i
 for media_item in client.user_recent_media.reverse
-# FIXME Need to track the latest post and save that back to the config YAML file
   if media_item.created_time.to_i > settings["most_recent_post_time"].to_i
+    # Check to see if it matches any hashtag filters
+    puts "About to check >>"+media_item.caption["text"]+"<<"
+    unless filter_settings["exclude"].nil?
+      if media_item.tags.include?(filter_settings["exclude"])
+        # We should ignore this item
+        next
+      end
+    end
+    unless filter_settings["requires"].nil?
+      unless media_item.tags.include?(filter_settings["requires"])
+        # It doesn't include the tag we need, so skip it
+        next
+      end
+    end
     #pp media_item
     puts "New post!"
     latest_post = media_item.created_time.to_i if media_item.created_time.to_i > latest_post
