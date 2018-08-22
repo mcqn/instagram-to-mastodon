@@ -108,10 +108,10 @@ for media_item in client.user_recent_media.reverse
       caption = caption+" ("+more_media.join('/')+" at #{media_item.link})"
     end
     # Now create a new status with the media_ids
-pp caption
-pp media
-# FIXME This will need checking once issue #9 in mastodon-api is fixed
+    puts "Posting >>#{caption}<<"
     mastodon.create_status(caption, nil, media)
+    # We're done with the image now, so delete it
+    File.delete("tmp_download/#{img_file}")
   end
 end
 
