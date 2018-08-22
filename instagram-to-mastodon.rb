@@ -22,7 +22,7 @@ mastodon_settings = settings["mastodon"]
 filter_settings = settings["filter"]
 
 #
-# Get Instagram weeknotes
+# Get recent Instagram posts for the authenticated user
 #
 Instagram.configure do |config|
   config.client_id = instagram_settings["client_id"]

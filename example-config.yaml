@@ -1,0 +1,22 @@
+---
+# Only pay attention to posts made since this time.  Used internally to keep track of
+# what's already been posted
+most_recent_post_time: 0
+
+instagram:
+  client_id: YOUR_INSTAGRAM_CLIENT_ID
+  client_secret: YOUR_INSTAGRAM_CLIENT_SECRET
+  auth_code: YOUR_INSTAGRAM_AUTH_CODE
+  access_token: YOUR_INSTAGRAM_ACCESS_TOKEN
+
+mastodon:
+  server: https://YOUR_MASTODON_INSTANCE_SERVER	# e.g. https://mastodon.me.uk
+  bearer_token: YOUR_MASTODON_BEARER_TOKEN
+# This section gives some finer control over what gets cross-posted.  Obviously you can
+# change the given hashtags to something else if you'd prefer different hashtag choices
+filter:
+  # Uncomment the following line to ONLY post Instagram posts which include the '#mx' hashtag
+  #requires: mx
+  # Uncomment the following line to post all Instagram posts APART FROM those which include
+  # the '#nomx' hashtag
+  #exclude: nomx
