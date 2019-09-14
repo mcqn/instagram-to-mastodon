@@ -91,7 +91,7 @@ for media_item in client.user_recent_media.reverse
     img = post.at_css("meta[property='og:image']")['content'] #this might only work for single image posts
     img_url = URI.parse(img)
     img_file = File.basename img_url.path
-    `wget #{img_url.to_s} -O 'tmp_download/#{img_file}'`
+    `wget '#{img_url.to_s}' -O 'tmp_download/#{img_file}'`
     # Upload it to Mastodon
     # Need to create the right data type for the upload
     hf = HTTP::FormData::File.new(File.open("tmp_download/#{img_file}", "rb"))
