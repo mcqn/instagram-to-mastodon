@@ -35,11 +35,11 @@ GEM
       faraday_middleware (>= 0.8, < 0.10)
       hashie (>= 0.4.0)
       multi_json (~> 1.0, >= 1.0.3)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     multi_json (1.13.1)
     multipart-post (2.0.0)
-    nokogiri (1.8.4)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.10.4)
+      mini_portile2 (~> 2.4.0)
     oj (3.6.6)
     public_suffix (3.0.3)
     unf (0.1.4)
@@ -52,7 +52,7 @@ PLATFORMS
 DEPENDENCIES
   instagram (~> 1.1)
   mastodon-api!
-  nokogiri (~> 1.8)
+  nokogiri (~> 1.10)
 
 BUNDLED WITH
    1.16.3
