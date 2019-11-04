@@ -103,9 +103,18 @@ for media_item in client.user_recent_media.reverse
       more_media.push("video")
     end
     caption = media_item.caption["text"]
+    unless caption.length < 500 || more_media.empty?
+      # Super-long caption, we should truncate and link to the original
+      more_media.push("more")
+    end
     unless more_media.empty?
       # Append a link to more media...
-      caption = caption+" ("+more_media.join('/')+" at #{media_item.link})"
+      link_to_more = " ("+more_media.join('/')+" at #{media_item.link})"
+      if caption.length + link_to_more.length >= 500
+        # Need to truncate the caption before we append the "more at..."
+        caption = caption[0..(496-link_to_more.length)]+"..."
+      end
+      caption = caption+link_to_more
     end
     # Now create a new status with the media_ids
     puts "Posting >>#{caption}<<"
