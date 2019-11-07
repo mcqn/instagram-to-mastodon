@@ -103,7 +103,7 @@ for media_item in client.user_recent_media.reverse
       more_media.push("video")
     end
     caption = media_item.caption["text"]
-    unless caption.length < 500 || more_media.empty?
+    if caption.length >= 500 && more_media.empty?
       # Super-long caption, we should truncate and link to the original
       more_media.push("more")
     end
