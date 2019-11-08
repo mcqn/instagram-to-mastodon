@@ -1,10 +1,13 @@
 # Instagram to Mastodon Bridge
 
+> ***This is currently broken (for new installations) because Instagram seems hostile to its users doing anything with their own data.***
+> See https://github.com/mcqn/instagram-to-mastodon/issues/4 for more detail.
+
 A simple script to check for new Instagram posts from the authorized account, and copy them across to your Mastodon account.
 
 ## Set up
 
- 1. Install the dependencies with `bundle install`
+ 1. Install the dependencies with `bundle install` (when deploying it rather than developing, you should probably run `bundle install --deployment` to install the gems locally rather than in the system location)
  1. Register a new Instagram client.  Visit [https://www.instagram.com/developer/clients/manage/](https://www.instagram.com/developer/clients/manage/)
  1. Click on "Register a new client"
  1. Fill in the form, we'll be staying in sandbox mode, so it's not too important what you enter here.  We'll call the client "Mastodon Bridge" so it's easy to remember what we built it for.
