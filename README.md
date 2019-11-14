@@ -2,6 +2,8 @@
 
 > ***This is currently broken (for new installations) because Instagram seems hostile to its users doing anything with their own data.***
 > See https://github.com/mcqn/instagram-to-mastodon/issues/4 for more detail.
+>
+> [Alastair]() found some [instructions on setting up Instagram->Mastodon posting using IFTTT](https://www.hyperborea.org/journal/2017/12/mastodon-ifttt/) which is a better solution (for now, at least).
 
 A simple script to check for new Instagram posts from the authorized account, and copy them across to your Mastodon account.
 
